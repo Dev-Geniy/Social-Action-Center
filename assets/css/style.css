@@ -1,0 +1,45 @@
+:root{
+--bg-main:#050A14;
+--accent:#FFD000;
+--text-main:#FFFFFF;
+--text-muted:#8A93A8;
+--radius:14px;
+--transition:0.35s ease;
+--header-height:70px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Inter,sans-serif;background:var(--bg-main);color:var(--text-main);scroll-behavior:smooth;}
+a{text-decoration:none;color:inherit;}
+section{position:relative;}
+
+.btn{padding:16px 36px;border-radius:var(--radius);background:var(--accent);color:black;font-weight:600;transition:var(--transition);display:inline-block;text-align:center;margin:5px;}
+.btn:hover{transform:translateY(-3px);}
+
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 20px;}
+.hero h1{font-size:clamp(28px,6vw,56px);margin-bottom:30px;line-height:1.2;}
+.hero .btn-group{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;}
+
+footer{background:#05070d;text-align:center;padding:30px;font-size:14px;color:var(--text-muted);}
+
+/* HEADER */
+header{position:fixed;top:0;width:100%;height:var(--header-height);backdrop-filter:blur(14px);background:rgba(5,10,20,0.85);z-index:999;display:flex;align-items:center;justify-content:space-between;padding:0 20px;}
+header .logo{font-size:20px;font-weight:700;}
+.nav-links{display:flex;gap:20px;}
+.nav-links a{font-weight:500;transition:var(--transition);}
+.nav-links a:hover{color:var(--accent);}
+
+/* BURGER */
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.burger div{width:25px;height:3px;background:white;border-radius:2px;transition:all 0.3s;}
+.nav-mobile{display:none;flex-direction:column;position:fixed;top:var(--header-height);right:0;width:70%;height:100%;background:rgba(5,10,20,0.95);padding:20px;gap:20px;transform:translateX(100%);transition:0.3s ease;z-index:998;}
+.nav-mobile.show{transform:translateX(0);}
+.nav-mobile a{color:white;font-size:18px;}
+
+/* Media queries */
+@media(max-width:768px){
+.nav-links{display:none;}
+.burger{display:flex;}
+.hero .btn-group{flex-direction:column;width:80%;margin:0 auto;gap:15px;}
+.hero .btn{width:100%;padding:16px 0;font-size:16px;}
+}
